@@ -65,13 +65,13 @@ class CartController extends Controller
         $data['cart'] = Cart::content();
         $data['total'] = Cart::total();
         Mail::send('frontend.email', $data, function ($message) use ($email, $name) {
-            $message->from('hqlinh5215@gmail.comm', 'Quang Linh');
+            $message->from('dungli1221@gmail.com', 'Mạnh Dũng');
 
             $message->to($email, $name);
 
             $message->subject('Xác nhận hóa đơn mua hàng MLDShop');
 
-        });     
+        });
 
         $loan_amount =  (int) (str_ireplace(',', '', Cart::total()));
 
@@ -121,12 +121,12 @@ class CartController extends Controller
         }
 
         $vnp_Url = $vnp_Url . "?" . $query;
-        
+
         if (isset($vnp_HashSecret)) {
             $vnpSecureHash =   hash_hmac('sha512', $hashdata, $vnp_HashSecret);//
             $vnp_Url .= 'vnp_SecureHash=' . $vnpSecureHash;
         }
-        
+
 
         return redirect($vnp_Url);
         // return redirect('complete');
@@ -137,8 +137,8 @@ class CartController extends Controller
     }
 
 
-   
-  
+
+
     public function response(Request $request)
     {
         $code = $request->code;

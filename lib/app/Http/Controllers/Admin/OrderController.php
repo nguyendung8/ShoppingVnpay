@@ -43,7 +43,7 @@ class OrderController extends Controller
         ];
         $order->save();
         Mail::send('backend.confirm_order',$data, function ($message) use ($email, $name) {
-            $message->from('hqlinh5215@gmail.com', 'Quang Linh');
+            $message->from('dungli1221@gmail.com', 'Mạnh Dũng');
 
             $message->to($email, $name);
 
@@ -63,7 +63,7 @@ class OrderController extends Controller
         ];
         $order->save();
         Mail::send('backend.transport_order',$data, function ($message) use ($email, $name) {
-            $message->from('hqlinh5215@gmail.com', 'Quang Linh');
+            $message->from('dungli1221@gmail.com', 'Mạnh Dũng');
 
             $message->to($email, $name);
 
