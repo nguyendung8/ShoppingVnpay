@@ -71,6 +71,8 @@ Route::group(['prefix' => 'cart'], function (){
 });
 
 //hoàn thành
+Route::get('/response_order', [CartController::class, 'response'])->name('responseOrder');
+
 Route::get('/complete', [CartController::class, 'getComplete'])->middleware('CheckLogedOut');
 
 
